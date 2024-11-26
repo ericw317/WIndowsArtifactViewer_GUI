@@ -49,6 +49,10 @@ def collect_bookmarks(drive, user, browser):
         other_bookmarks = roots['other']['children']
         bookmarks_data = []
 
+        # remove file copies
+        if os.path.exists(destination):
+            os.remove(destination)
+
         # add data to list
         for bookmark in other_bookmarks:
             name = bookmark['name']
