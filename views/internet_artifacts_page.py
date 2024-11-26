@@ -144,8 +144,9 @@ def parse(drive, user):
         success = True
     if c_bookmarks.value:
         output = bookmarks_parsing.collect_bookmarks(drive, user, dd_browser.value)
-        export_data(output, f"{user} {dd_browser.value} Bookmarks.txt")
-        open_text(os.path.join(config.output_path, f"{user} {dd_browser.value} Bookmarks.txt"))
+        if output != 0:
+            export_data(output, f"{user} {dd_browser.value} Bookmarks.txt")
+            open_text(os.path.join(config.output_path, f"{user} {dd_browser.value} Bookmarks.txt"))
         success = True
     if c_logins.value:
         output = logins_parsing.main(drive, user, dd_browser.value)

@@ -134,7 +134,7 @@ def parse_recycle_bin(drive, username_filter=None):
                 file_name = parse_i_file(os.path.join(folder, file))[0]
 
                 # Ignore file names that start with an unprintable character
-                if not file_name[0].isprintable():
+                if not file_name[:2].isprintable():
                     continue
 
                 # Update name_space if the current file name is longer
@@ -155,7 +155,7 @@ def parse_recycle_bin(drive, username_filter=None):
                 file_name = parse_i_file(file_path)[0]
 
                 # Filter out lines where the file name starts with an unprintable character
-                if not file_name[0].isprintable():
+                if not file_name[:2].isprintable():
                     continue
 
                 file_size = convert_file_size(parse_i_file(file_path)[1])

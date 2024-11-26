@@ -80,7 +80,7 @@ def list_drives():
 
 def export_data(data, filename):
     output_path = os.path.join(config.output_path, filename)
-    with open(output_path, 'w') as file:
+    with open(output_path, 'w', encoding='utf-16') as file:
         file.write(data)
 
 def grey_checkboxes(initial=False):
