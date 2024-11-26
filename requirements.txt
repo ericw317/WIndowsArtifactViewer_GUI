@@ -1,0 +1,8 @@
+flet==0.22.*
+
+pip install psutil
+pip install pytz
+pip install tzdata
+pip install windowsprefetch
+pip install python-registry
+pip install FireFoxDecrypt
