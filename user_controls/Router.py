@@ -3,6 +3,7 @@ import flet as ft
 from enum import Enum
 import views.file_artifacts_page as file_artifacts_page
 import views.internet_artifacts_page as internet_artifacts_page
+import views.jumplists_page as jumplists_page
 
 class DataStrategyEnum(Enum):
     QUERY = 0
@@ -37,6 +38,7 @@ class Router:
         # clear text fields
         file_artifacts_page.clear_fields()
         internet_artifacts_page.clear_fields()
+        jumplists_page.clear_fields()
 
         self.body.content = self.routes[_page](self)
         self.body.update()

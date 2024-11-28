@@ -2,6 +2,7 @@ import datetime
 import struct
 from zoneinfo import ZoneInfo
 from CustomLibs import config
+from datetime import datetime, timedelta
 
 # convert FILETIME format to readable
 def filetime_convert(filetime):
@@ -40,3 +41,15 @@ def convert_unix_epoch_microseconds(timestamp):
         return local_time
     else:
         return readable_time
+
+def hex_filetime(filetime_hex):
+    # Convert the little-endian hex string to an integer
+    filetime = int.from_bytes(bytes.fromhex(filetime_hex), "little")
+
+    # FILETIME epoch is January 1, 1601
+    filetime_epoch = datetime(1601, 1, 1)
+
+    # Convert the filetime to seconds (divide by 10,000,000) and add to the epoch
+    converted_time = filetime_epoch + timedelta(seconds=filetime / 10 ** 7)
+
+    return converted_time.replace(microsecond=0)

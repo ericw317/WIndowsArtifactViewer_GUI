@@ -163,7 +163,7 @@ for drive in drives:
 
 # buttons
 b_parse = ft.ElevatedButton(
-    "Parse Artifacts",
+    "Parse Jumplists",
     height=50, width=250,
     on_click=lambda _: parse(dd_drives.value, dd_users.value)
 )

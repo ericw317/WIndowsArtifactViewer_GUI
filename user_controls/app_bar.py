@@ -9,6 +9,7 @@ def NavBar(page):
         options=[
             ft.dropdown.Option("File Artifacts"),
             ft.dropdown.Option("Internet Artifacts"),
+            ft.dropdown.Option("Jumplists"),
             ft.dropdown.Option("Settings")
         ]
     )
@@ -18,6 +19,8 @@ def NavBar(page):
             navigation = "/"
         elif NavBar.value == "Internet Artifacts":
             navigation = "/internet-artifacts"
+        elif NavBar.value == "Jumplists":
+            navigation = "/jumplists"
         elif NavBar.value == "Settings":
             navigation = "/settings"
         page.go(navigation)
