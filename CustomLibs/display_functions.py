@@ -20,7 +20,7 @@ def four_values(name1, name2, name3, name4, list_name):
         if len(value[3]) > list4_space:
             list4_space = len(value[3])
 
-    total_space = list1_space + list2_space + list3_space + list4_space
+    total_space = list1_space + list2_space + list3_space + list4_space + 12
 
     # display values
     output = []
@@ -50,7 +50,7 @@ def three_values(name1, name2, name3, list_name):
         if len(value[2]) > list3_space:
             list3_space = len(value[2])
 
-    total_space = list1_space + list2_space + list3_space
+    total_space = list1_space + list2_space + list3_space + 9
 
     # display values
     output = []
@@ -76,7 +76,7 @@ def two_values(name1, name2, list_name):
         if len(value[1]) > list2_space:
             list2_space = len(value[1])
 
-    total_space = list1_space + list2_space
+    total_space = list1_space + list2_space + 6
 
     # display values
     output = []
@@ -160,7 +160,7 @@ def eleven_values(name1, name2, name3, name4, name5, name6, name7, name8, name9,
             list11_space = len(value[10])
 
     total_space = list1_space + list2_space + list3_space + list4_space + list5_space + list6_space + list7_space
-    total_space += list8_space + list9_space + list10_space + list11_space
+    total_space += list8_space + list9_space + list10_space + list11_space + 33
 
     # display values
     output = []
