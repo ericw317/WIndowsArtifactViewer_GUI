@@ -124,12 +124,15 @@ def parse(drive, user):
         open_text(os.path.join(config.output_path, f"({dd_drives.value[0]}) Prefetch Data.txt"))
         success = True
     if c_recycle_bin.value:
+        print('here1')
         output = recycle_bin_parsing.parse_recycle_bin(drive, dd_users.value)
         if dd_users.value is not None and dd_users.value != "":
+            print('here2')
             file_name = f"({dd_drives.value[0]}) {dd_users.value} $Recycle.Bin Data.txt"
             export_data(output, file_name)
             open_text(os.path.join(config.output_path, f"({dd_drives.value[0]}) {dd_users.value} $Recycle.Bin Data.txt"))
         else:
+            print('here3')
             file_name = f"({dd_drives.value[0]}) $Recycle.Bin Data.txt"
             export_data(output, file_name)
             open_text(os.path.join(config.output_path, f"({dd_drives.value[0]}) $Recycle.Bin Data.txt"))

@@ -1,5 +1,4 @@
-import datetime
-import struct
+import datetime as dt
 from zoneinfo import ZoneInfo
 from CustomLibs import config
 from datetime import datetime, timedelta
@@ -7,8 +6,8 @@ from datetime import datetime, timedelta
 # convert FILETIME format to readable
 def filetime_convert(filetime):
     seconds = filetime / 10**7  # convert FILETIME to seconds
-    filetime_epoch = datetime.datetime(1601, 1, 1, tzinfo=datetime.timezone.utc)  # define epoch
-    readable_time = filetime_epoch + datetime.timedelta(seconds=seconds)  # add seconds to epoch
+    filetime_epoch = dt.datetime(1601, 1, 1, tzinfo=dt.timezone.utc)  # define epoch
+    readable_time = filetime_epoch + dt.timedelta(seconds=seconds)  # add seconds to epoch
     readable_time = readable_time.replace(microsecond=0)
 
     if config.timezone != "UTC":
@@ -19,9 +18,9 @@ def filetime_convert(filetime):
 
 # convert windows epoch to readable
 def convert_windows_epoch(timestamp):
-    epoch_start = datetime.datetime(1601, 1, 1, tzinfo=datetime.timezone.utc)
+    epoch_start = dt.datetime(1601, 1, 1, tzinfo=dt.timezone.utc)
     timestamp_in_seconds = timestamp / 1_000_000
-    readable_time = epoch_start + datetime.timedelta(seconds=timestamp_in_seconds)
+    readable_time = epoch_start + dt.timedelta(seconds=timestamp_in_seconds)
     readable_time = readable_time.replace(microsecond=0)  # remove microseconds
 
     if config.timezone != "UTC":
@@ -32,8 +31,8 @@ def convert_windows_epoch(timestamp):
 
 # convert unix epoch in microseconds
 def convert_unix_epoch_microseconds(timestamp):
-    epoch_start = datetime.datetime(1970, 1, 1, tzinfo=datetime.timezone.utc)
-    readable_time = epoch_start + datetime.timedelta(microseconds=timestamp)
+    epoch_start = dt.datetime(1970, 1, 1, tzinfo=dt.timezone.utc)
+    readable_time = epoch_start + dt.timedelta(microseconds=timestamp)
     readable_time = readable_time.replace(microsecond=0)
 
     if config.timezone != "UTC":
